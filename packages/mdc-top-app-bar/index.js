@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-import {MDCComponent} from '@material/base';
-
 import MDCTopAppBarFoundation from './foundation';
 import * as util from './util';
+import {MDCToolbar} from '../mdc-toolbar/index';
 
 export {MDCTopAppBarFoundation};
 export {util};
 
-export class MDCTopAppBar extends MDCComponent {
+export class MDCTopAppBar extends MDCToolbar {
   static attachTo(root) {
     return new MDCTopAppBar(root);
   }
@@ -46,6 +45,10 @@ export class MDCTopAppBar extends MDCComponent {
 
   get fixedAdjustElement() {
     return this.fixedAdjustElement_;
+  }
+
+  set shortAppBar(isShort) {
+    this.foundation_.setAppBarType(isShort);
   }
 
   getDefaultFoundation() {
